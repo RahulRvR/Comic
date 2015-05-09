@@ -1,4 +1,4 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.characters;
 
 import com.google.gson.annotations.Expose;
 
@@ -9,14 +9,14 @@ import java.util.List;
  * Created by vijayr on 3/28/15.
  * Copyright (C) 2014 Elsevier
  */
-public class Stories {
+public class Series {
 
     @Expose
     private Integer available;
     @Expose
     private String collectionURI;
     @Expose
-    private List<Item__> items = new ArrayList<Item__>();
+    private List<Item_> items = new ArrayList<Item_>();
     @Expose
     private Integer returned;
 
@@ -61,7 +61,7 @@ public class Stories {
      * @return
      * The items
      */
-    public List<Item__> getItems() {
+    public List<Item_> getItems() {
         return items;
     }
 
@@ -70,7 +70,7 @@ public class Stories {
      * @param items
      * The items
      */
-    public void setItems(List<Item__> items) {
+    public void setItems(List<Item_> items) {
         this.items = items;
     }
 

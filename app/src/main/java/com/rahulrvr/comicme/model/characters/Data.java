@@ -1,8 +1,9 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.characters;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.*;
 import java.util.ArrayList;
 import java.util.List;
 

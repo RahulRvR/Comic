@@ -1,4 +1,4 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.characters;
 
 import com.google.gson.annotations.Expose;
 
@@ -6,15 +6,12 @@ import com.google.gson.annotations.Expose;
  * Created by vijayr on 3/28/15.
  * Copyright (C) 2014 Elsevier
  */
-
-public class Item__ {
+public class Item_ {
 
     @Expose
     private String resourceURI;
     @Expose
     private String name;
-    @Expose
-    private String type;
 
     /**
      *
@@ -50,24 +47,6 @@ public class Item__ {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     *
-     * @return
-     * The type
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     *
-     * @param type
-     * The type
-     */
-    public void setType(String type) {
-        this.type = type;
     }
 
 }
