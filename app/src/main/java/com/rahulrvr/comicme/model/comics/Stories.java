@@ -1,4 +1,4 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.comics;
 
 import com.google.gson.annotations.Expose;
 
@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by vijayr on 3/28/15.
- * Copyright (C) 2014 Elsevier
+ * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
-public class Series {
+public class Stories {
 
     @Expose
     private Integer available;

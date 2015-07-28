@@ -1,4 +1,4 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.characters;
 
 import com.google.gson.annotations.Expose;
 

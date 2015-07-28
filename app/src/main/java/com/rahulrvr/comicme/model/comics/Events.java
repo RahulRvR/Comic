@@ -1,4 +1,4 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.comics;
 
 import com.google.gson.annotations.Expose;
 
@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by vijayr on 3/28/15.
- * Copyright (C) 2014 Elsevier
+ * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
 public class Events {
 
@@ -16,7 +15,7 @@ public class Events {
     @Expose
     private String collectionURI;
     @Expose
-    private List<Object> items = new ArrayList<Object>();
+    private List<Item__> items = new ArrayList<Item__>();
     @Expose
     private Integer returned;
 
@@ -61,7 +60,7 @@ public class Events {
      * @return
      * The items
      */
-    public List<Object> getItems() {
+    public List<Item__> getItems() {
         return items;
     }
 
@@ -70,7 +69,7 @@ public class Events {
      * @param items
      * The items
      */
-    public void setItems(List<Object> items) {
+    public void setItems(List<Item__> items) {
         this.items = items;
     }
 

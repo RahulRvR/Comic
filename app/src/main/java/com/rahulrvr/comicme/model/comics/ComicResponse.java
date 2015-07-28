@@ -1,8 +1,11 @@
-package com.rahulrvr.comicme.model;
+package com.rahulrvr.comicme.model.comics;
 
 import com.google.gson.annotations.Expose;
 
-public class Comic {
+/**
+ * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ */
+public class ComicResponse {
 
     @Expose
     private Integer code;

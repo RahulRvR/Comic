@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.rahulrvr.comicme.PaletteTransformation;
 import com.rahulrvr.comicme.R;
-import com.rahulrvr.comicme.model.characters.Character;
+import com.rahulrvr.comicme.model.comics.Comic;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -18,12 +18,13 @@ import java.util.List;
 /**
  * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
-public class CharacterListAdapter extends RecyclerView.Adapter<CharacterViewHolder>{
+public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> {
+
 
     Context mContext;
-    List<Character> mCharacterList;
+    List<Comic> mCharacterList;
 
-    public CharacterListAdapter(Context context, List<Character> characters) {
+    public ComicListAdapter(Context context, List<Comic> characters) {
         mContext = context;
         mCharacterList = characters;
     }
@@ -37,8 +38,8 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterViewHold
 
     @Override
     public void onBindViewHolder(CharacterViewHolder holder, int position) {
-        Character character = mCharacterList.get(position);
-        holder.characterName.setText(character.getName());
+        Comic character = mCharacterList.get(position);
+        holder.characterName.setText(character.getTitle());
         String url = character.getThumbnail().getPath() + "/standard_amazing." + character.getThumbnail().getExtension();
         PaletteTransformation paletteTransformation = new PaletteTransformation();
         Picasso.with(mContext).load(url).
