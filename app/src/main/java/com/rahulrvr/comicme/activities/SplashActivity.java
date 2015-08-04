@@ -23,7 +23,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        new android.os.Handler().postDelayed(() -> startActivity(new Intent(SplashActivity.this, MainActivity.class)), 3000);
+        new android.os.Handler().postDelayed(() -> startActivity(new Intent(SplashActivity.this, MainActivity.class)), SPLASH_DELAY);
     }
 
     @Override
