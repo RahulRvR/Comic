@@ -45,12 +45,11 @@ public class ComicFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         ComicService service = MyApplication.getInstance().getRestAdapter().create(ComicService.class);
-        service.getComics().observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
+        service.getComics(null).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
             Log.d("xx", "dsf");
             comicList.setAdapter(new ComicListAdapter(getActivity(), comic.getData().getComics()));
         });
     }
-
 
     @Override
     public void onDestroyView() {
