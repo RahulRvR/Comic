@@ -1,6 +1,7 @@
 package com.rahulrvr.comicme.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -31,30 +32,34 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
 
     @Override
     public CharacterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.characters_adapter_layout,null);
-        CharacterViewHolder viewHolder = new CharacterViewHolder(v);
-        return viewHolder;
+        View v = LayoutInflater.from(mContext).inflate(R.layout.characters_adapter_layout,parent,false);
+        return new CharacterViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(CharacterViewHolder holder, int position) {
         Comic character = mCharacterList.get(position);
         holder.characterName.setText(character.getTitle());
-        String url = character.getThumbnail().getPath() + "/standard_amazing." + character.getThumbnail().getExtension();
+        String url = character.getThumbnail().getPath() + "/standard_fantastic." + character.getThumbnail().getExtension();
         PaletteTransformation paletteTransformation = new PaletteTransformation();
         Picasso.with(mContext).load(url).
-                transform(paletteTransformation).
+                transform(paletteTransformation).resize(200,200).centerInside().
                 into(holder.characterImage, new Callback.EmptyCallback() {
                     @Override
                     public void onSuccess() {
                         super.onSuccess();
                         Palette palette = paletteTransformation.getPalette();
-                        if(palette != null) {
-                            holder.characterName.setBackgroundColor(palette.getLightVibrantColor(0));
-                            holder.characterName.setTextColor(palette.getDarkMutedColor(0));
+                        Typeface typeface = Typeface.createFromAsset(mContext.getAssets(), "RobotoCondensed-Bold.ttf");
+                        holder.characterName.setTypeface(typeface);
+                        if (palette != null) {
+                            Palette.Swatch swatch =  palette.getVibrantSwatch();
+                            holder.characterName.setBackgroundColor(palette.getVibrantColor(0));
+                            if(swatch!=null)
+                            holder.characterName.setTextColor(swatch.getTitleTextColor());
                         }
                     }
                 });
+
     }
 
     @Override
