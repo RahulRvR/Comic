@@ -3,7 +3,6 @@ package com.rahulrvr.comicme.activities;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,8 +20,6 @@ import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements IListItemClickListener{
 
-    @InjectView(R.id.navList)
-    RecyclerView navList;
     @InjectView(R.id.mainContainer)
     FrameLayout mainContainer;
     @InjectView(R.id.navDrawer)
@@ -38,7 +35,6 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
         setContentView(R.layout.main_layout);
         ButterKnife.inject(this);
         setSupportActionBar(toolbar);
-        navList.setLayoutManager(new LinearLayoutManager(this));
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,navDrawer,toolbar,R.string.open_drawer,R.string.close_drawer){
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -57,7 +53,6 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
         navDrawer.setDrawerListener(actionBarDrawerToggle); // Drawer Listener set to the Drawer toggle
         actionBarDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
         RecyclerView.Adapter<NavDrawerListViewHolder> adapter = new NavDrawerListAdapter(this,TITLES,this);
-        navList.setAdapter(adapter);
     }
 
     @Override
