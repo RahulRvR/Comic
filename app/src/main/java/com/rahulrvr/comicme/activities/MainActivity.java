@@ -1,17 +1,15 @@
 package com.rahulrvr.comicme.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.rahulrvr.comicme.R;
-import com.rahulrvr.comicme.adapters.NavDrawerListAdapter;
-import com.rahulrvr.comicme.adapters.NavDrawerListViewHolder;
 import com.rahulrvr.comicme.fragments.ComicFragment;
 import com.rahulrvr.comicme.fragments.HomeFragment;
 import com.rahulrvr.comicme.interfaces.IListItemClickListener;
@@ -19,10 +17,8 @@ import com.rahulrvr.comicme.interfaces.IListItemClickListener;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class MainActivity extends BaseActivity implements IListItemClickListener{
+public class MainActivity extends BaseActivity implements IListItemClickListener {
 
-    @InjectView(R.id.navList)
-    RecyclerView navList;
     @InjectView(R.id.mainContainer)
     FrameLayout mainContainer;
     @InjectView(R.id.navDrawer)
@@ -31,15 +27,17 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
-    String TITLES[] = {"Comics","Characters","Settings"};
+    String TITLES[] = {"Comics", "Characters", "Settings"};
+    @InjectView(R.id.navList)
+    NavigationView navList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         ButterKnife.inject(this);
         setSupportActionBar(toolbar);
-        navList.setLayoutManager(new LinearLayoutManager(this));
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,navDrawer,toolbar,R.string.open_drawer,R.string.close_drawer){
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, navDrawer, toolbar, R.string.open_drawer, R.string.close_drawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -56,18 +54,37 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
         }; // Drawer Toggle Object Made
         navDrawer.setDrawerListener(actionBarDrawerToggle); // Drawer Listener set to the Drawer toggle
         actionBarDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
-        RecyclerView.Adapter<NavDrawerListViewHolder> adapter = new NavDrawerListAdapter(this,TITLES,this);
-        navList.setAdapter(adapter);
+        navList.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                menuItem.setChecked(true);
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_comic:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
+                        navDrawer.closeDrawers();
+                    return true;
+                   case  R.id.nav_character:
+                       getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment()).commit();
+                       navDrawer.closeDrawers();
+                    return true;
+
+
+                }
+
+
+                return false;
+            }
+        });
     }
 
     @Override
     public void onItemClicked(String tag) {
         switch (tag) {
-            case "Comics" :
+            case "Comics":
                 getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
                 break;
-            case "Characters" :
-                getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment()).commit();
+            case "Characters":
+
                 break;
 
         }

@@ -3,4 +3,7 @@
 
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
+
+    <string name="comic">Comic</string>
+    <string name="characters">Character</string>
 </resources>
