@@ -42,7 +42,7 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
         String url = character.getThumbnail().getPath() + "/standard_fantastic." + character.getThumbnail().getExtension();
         PaletteTransformation paletteTransformation = new PaletteTransformation();
         Picasso.with(mContext).load(url).
-                transform(paletteTransformation).resize(200,200).centerInside().
+                transform(paletteTransformation).
                 into(holder.characterImage, new Callback.EmptyCallback() {
                     @Override
                     public void onSuccess() {
