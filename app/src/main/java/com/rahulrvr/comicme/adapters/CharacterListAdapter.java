@@ -1,7 +1,6 @@
 package com.rahulrvr.comicme.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,8 +49,8 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterViewHold
                         public void onSuccess() {
                             super.onSuccess();
                             Palette palette = paletteTransformation.getPalette();
-                            Typeface typeface = Typeface.createFromAsset(mContext.getAssets(), "RobotoCondensed-Bold.ttf");
-                            holder.characterName.setTypeface(typeface);
+                            //Typeface typeface = Typeface.createFromAsset(mContext.getAssets(), "RobotoCondensed-Bold.ttf");
+                            //holder.characterName.setTypeface(typeface);
                             if (palette != null) {
                                 Palette.Swatch swatch = palette.getVibrantSwatch();
                                 holder.characterName.setBackgroundColor(palette.getVibrantColor(0));
