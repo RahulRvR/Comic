@@ -2,10 +2,12 @@ package com.rahulrvr.comicme.model.comics;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
+
 /**
  * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
-public class Thumbnail {
+public class Thumbnail implements Serializable{
 
     @Expose
     private String path;

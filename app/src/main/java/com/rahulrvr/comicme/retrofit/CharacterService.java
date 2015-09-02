@@ -14,5 +14,4 @@ public interface CharacterService {
     @GET("/v1/public/characters?ts=1&apikey=eb95459cac0b6177473decbeb608a839&hash=1ae5d2e78ffa4682eb728f01a6c0c4f5")
     Observable<CharacterResponse> listCharacters();
 
-
 }

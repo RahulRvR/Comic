@@ -1,6 +1,7 @@
 package com.rahulrvr.comicme.model.characters;
 
 import com.google.gson.annotations.Expose;
+import com.rahulrvr.comicme.model.comics.Thumbnail;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,6 @@
 package com.rahulrvr.comicme.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -60,7 +61,9 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
                 menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.nav_comic:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
+                      // getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
+                        Intent intent = new Intent(MainActivity.this, ComicDetailActivity.class);
+                        startActivity(intent);
                         navDrawer.closeDrawers();
                     return true;
                    case  R.id.nav_character:

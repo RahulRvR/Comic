@@ -23,10 +23,12 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
 
     Context mContext;
     List<Comic> mCharacterList;
+    OnComicItemClickListener mListener;
 
-    public ComicListAdapter(Context context, List<Comic> characters) {
+    public ComicListAdapter(Context context, List<Comic> characters,OnComicItemClickListener listener) {
         mContext = context;
         mCharacterList = characters;
+        mListener= listener;
     }
 
     @Override
@@ -58,11 +60,22 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
                         }
                     }
                 });
-
+        ((ViewGroup)holder.characterImage.getParent()).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.OnComicSelected(position);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mCharacterList.size();
+    }
+
+
+    public interface OnComicItemClickListener {
+
+        void OnComicSelected(int position);
     }
 }
