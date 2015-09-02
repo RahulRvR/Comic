@@ -1,5 +1,6 @@
 package com.rahulrvr.comicme.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +12,13 @@ import android.view.ViewGroup;
 
 import com.rahulrvr.comicme.MyApplication;
 import com.rahulrvr.comicme.R;
+import com.rahulrvr.comicme.activities.ComicDetailActivity;
 import com.rahulrvr.comicme.adapters.CharacterListAdapter;
+import com.rahulrvr.comicme.adapters.ComicListAdapter;
+import com.rahulrvr.comicme.model.characters.Character;
 import com.rahulrvr.comicme.retrofit.CharacterService;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -21,10 +27,11 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
 
     @InjectView(R.id.characterList)
     RecyclerView characterList;
+    List<Character> mCharacters;
 
     @Nullable
     @Override
@@ -39,17 +46,19 @@ public class HomeFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         characterList.setLayoutManager(layoutManager);
+        CharacterService service = MyApplication.getInstance().getRestAdapter().create(CharacterService.class);
+        service.listCharacters().observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
+            Log.d("xx", "dsf");
+            mCharacters = comic.getData().getCharacters();
+            characterList.setAdapter(new CharacterListAdapter(getActivity(), mCharacters, this));
+        });
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        CharacterService service = MyApplication.getInstance().getRestAdapter().create(CharacterService.class);
-        service.listCharacters().observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
-            Log.d("xx", "dsf");
-            characterList.setAdapter(new CharacterListAdapter(getActivity(), comic.getData().getCharacters()));
-        });
+
     }
 
     @Override
@@ -58,4 +67,13 @@ public class HomeFragment extends BaseFragment {
         ButterKnife.reset(this);
     }
 
+
+    @Override
+    public void OnComicSelected(int position) {
+        Character character = mCharacters.get(position);
+        Intent intent = new Intent(getActivity(),ComicDetailActivity.class);
+        intent.putExtra("comic", character.getThumbnail());
+        intent.putExtra("comicTitle", character.getName());
+        getActivity().startActivity(intent);
+    }
 }
