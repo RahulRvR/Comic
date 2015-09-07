@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
@@ -23,7 +22,7 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * Created by rahulrv on 8/9/15.
  */
-public class ComicDetailActivity extends AppCompatActivity {
+public class ComicDetailActivity extends BaseActivity {
 
     Thumbnail mThumbnail;
     @Bind(R.id.backdrop)
