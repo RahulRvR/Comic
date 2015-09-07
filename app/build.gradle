@@ -68,13 +68,10 @@ dependencies {
     compile presentationDependencies.picasso
     compile presentationDependencies.rxjava
     compile presentationDependencies.rxandroid
-
     compile presentationDependencies.gson
+    compile presentationDependencies.retrofitrxjavaadapter
+    compile presentationDependencies.retrofitgsonconverter
 
-    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta1'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'
-
-    compile 'com.squareup.retrofit:converter-simplexml:2.0.0-beta1'
 
 }
 

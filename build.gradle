@@ -46,7 +46,9 @@ allprojects {
                 picasso           : "com.squareup.picasso:picasso:${picassoVersion}",
                 rxjava            : "io.reactivex:rxjava:${rxjavaVersion}",
                 rxandroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
-                gson              : "com.google.code.gson:gson:${gsonVersion}"
+                gson              : "com.google.code.gson:gson:${gsonVersion}",
+                retrofitrxjavaadapter : "com.squareup.retrofit:adapter-rxjava:${retrofitVersion}",
+                retrofitgsonconverter : "com.squareup.retrofit:converter-gson:${retrofitVersion}",
         ]
 
     }
