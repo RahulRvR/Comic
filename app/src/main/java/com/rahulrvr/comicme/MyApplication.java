@@ -2,7 +2,9 @@ package com.rahulrvr.comicme;
 
 import android.app.Application;
 
-import retrofit.RestAdapter;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
+import retrofit.RxJavaCallAdapterFactory;
 
 /**
  * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
@@ -11,7 +13,7 @@ public class MyApplication extends Application {
 
     private static MyApplication myApplication;
     String endpoint = "https://gateway.marvel.com/";
-    RestAdapter mRestAdapter;
+    Retrofit mRestAdapter;
 
 
     public static MyApplication getInstance() {
@@ -22,10 +24,11 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         myApplication = this;
-        mRestAdapter = new RestAdapter.Builder().setEndpoint(endpoint).build();
+        mRestAdapter = new Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
     }
 
-    public RestAdapter getRestAdapter() {
+    public Retrofit getRestAdapter() {
         return mRestAdapter;
     }
 

@@ -16,8 +16,8 @@ import com.rahulrvr.comicme.model.comics.Thumbnail;
 import com.rahulrvr.comicme.retrofit.ComicService;
 import com.squareup.picasso.Picasso;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
@@ -26,25 +26,26 @@ import rx.android.schedulers.AndroidSchedulers;
 public class ComicDetailActivity extends AppCompatActivity {
 
     Thumbnail mThumbnail;
-    @InjectView(R.id.backdrop)
+    @Bind(R.id.backdrop)
     ImageView backdrop;
-    @InjectView(R.id.toolbar)
+    @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.collapsing_toolbar)
+    @Bind(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbar;
-    @InjectView(R.id.appbar)
+    @Bind(R.id.appbar)
     AppBarLayout appbar;
-    @InjectView(R.id.main_content)
+    @Bind(R.id.main_content)
     CoordinatorLayout mainContent;
 
-    @InjectView(R.id.txtDescription)
+    @Bind(R.id.txtDescription)
     TextView txtDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comic_detail_layout);
-        ButterKnife.inject(this);
+
+        ButterKnife.bind(this);
         mThumbnail = (Thumbnail) getIntent().getSerializableExtra("comic");
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

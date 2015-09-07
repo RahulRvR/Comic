@@ -60,6 +60,7 @@ dependencies {
     compile presentationDependencies.supportv7
     compile presentationDependencies.supportv4
     compile presentationDependencies.designsupport
+    compile presentationDependencies.palette
     compile presentationDependencies.cardview
     compile presentationDependencies.recyclerview
     compile presentationDependencies.androidannotations
@@ -67,6 +68,13 @@ dependencies {
     compile presentationDependencies.picasso
     compile presentationDependencies.rxjava
     compile presentationDependencies.rxandroid
+
+    compile presentationDependencies.gson
+
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta1'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'
+
+    compile 'com.squareup.retrofit:converter-simplexml:2.0.0-beta1'
 
 }
 

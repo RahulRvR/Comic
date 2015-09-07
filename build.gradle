@@ -30,6 +30,7 @@ allprojects {
         picassoVersion = '2.5.2'
         rxjavaVersion = '1.0.13'
         rxAndroidVersion = '1.0.1'
+        gsonVersion ='2.3.1'
 
         //presentation libraries
         presentationDependencies = [
@@ -37,6 +38,7 @@ allprojects {
                 supportv7         : "com.android.support:appcompat-v7:${supportVersion}",
                 supportv4         : "com.android.support:support-v4:${supportVersion}",
                 designsupport     : "com.android.support:design:${supportVersion}",
+                palette           : "com.android.support:palette-v7:${supportVersion}",
                 recyclerview      : "com.android.support:recyclerview-v7:${supportVersion}",
                 cardview          : "com.android.support:cardview-v7:${supportVersion}",
                 androidannotations: "com.android.support:support-annotations:${supportVersion}",
@@ -44,6 +46,7 @@ allprojects {
                 picasso           : "com.squareup.picasso:picasso:${picassoVersion}",
                 rxjava            : "io.reactivex:rxjava:${rxjavaVersion}",
                 rxandroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
+                gson              : "com.google.code.gson:gson:${gsonVersion}"
         ]
 
     }

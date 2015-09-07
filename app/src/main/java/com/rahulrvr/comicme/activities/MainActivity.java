@@ -15,28 +15,28 @@ import com.rahulrvr.comicme.fragments.ComicFragment;
 import com.rahulrvr.comicme.fragments.HomeFragment;
 import com.rahulrvr.comicme.interfaces.IListItemClickListener;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity implements IListItemClickListener {
 
-    @InjectView(R.id.mainContainer)
+    @Bind(R.id.mainContainer)
     FrameLayout mainContainer;
-    @InjectView(R.id.navDrawer)
+    @Bind(R.id.navDrawer)
     DrawerLayout navDrawer;
-    @InjectView(R.id.tool_bar)
+    @Bind(R.id.tool_bar)
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
     String TITLES[] = {"Comics", "Characters", "Settings"};
-    @InjectView(R.id.navList)
+    @Bind(R.id.navList)
     NavigationView navList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, navDrawer, toolbar, R.string.open_drawer, R.string.close_drawer) {
             @Override
