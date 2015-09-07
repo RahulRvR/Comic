@@ -20,8 +20,9 @@ import com.rahulrvr.comicme.retrofit.ComicService;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
@@ -29,7 +30,7 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 public class ComicFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
 
-    @InjectView(R.id.comicList)
+    @Bind(R.id.comicList)
     RecyclerView comicList;
     List<Comic> mComicList;
 
@@ -37,7 +38,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.comic_fragment_layout, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -62,7 +63,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        ButterKnife.unbind(this);
     }
 
     @Override
