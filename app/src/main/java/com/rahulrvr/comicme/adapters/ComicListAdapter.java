@@ -41,7 +41,7 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
     public void onBindViewHolder(CharacterViewHolder holder, int position) {
         Comic character = mCharacterList.get(position);
         holder.characterName.setText(character.getTitle());
-        String url = character.getThumbnail().getPath() + "/standard_fantastic." + character.getThumbnail().getExtension();
+        String url = character.getThumbnail().getPath() + "/landscape_incredible." + character.getThumbnail().getExtension();
         PaletteTransformation paletteTransformation = new PaletteTransformation();
         Picasso.with(mContext).load(url).
                 transform(paletteTransformation).

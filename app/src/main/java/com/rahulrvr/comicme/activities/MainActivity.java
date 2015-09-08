@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 import com.rahulrvr.comicme.R;
 import com.rahulrvr.comicme.fragments.ComicFragment;
-import com.rahulrvr.comicme.fragments.HomeFragment;
+import com.rahulrvr.comicme.fragments.CharacterFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity{
                         navDrawer.closeDrawers();
                         return true;
                     case R.id.nav_character:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CharacterFragment()).commit();
                         navDrawer.closeDrawers();
                         return true;
 

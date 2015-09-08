@@ -27,7 +27,7 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
  */
-public class HomeFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
+public class CharacterFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
 
     @Bind(R.id.characterList)
     RecyclerView characterList;
