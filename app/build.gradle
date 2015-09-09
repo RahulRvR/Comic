@@ -71,6 +71,7 @@ dependencies {
     compile presentationDependencies.gson
     compile presentationDependencies.retrofitrxjavaadapter
     compile presentationDependencies.retrofitgsonconverter
+    compile presentationDependencies.calligraphy
 
 
 }

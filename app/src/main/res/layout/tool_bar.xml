@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:titleMarginStart="16dp"
+    tools:context=".activities.HomeActivity"
+    tools:ignore="Overdraw"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/red"
-    android:elevation="4dp"
-    android:paddingTop="20dp"
-    >
-
-</android.support.v7.widget.Toolbar>
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"/>

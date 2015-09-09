@@ -1,6 +1,5 @@
 package com.rahulrvr.comicme.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -12,13 +11,12 @@ import android.widget.FrameLayout;
 
 import com.rahulrvr.comicme.R;
 import com.rahulrvr.comicme.fragments.ComicFragment;
-import com.rahulrvr.comicme.fragments.HomeFragment;
-import com.rahulrvr.comicme.interfaces.IListItemClickListener;
+import com.rahulrvr.comicme.fragments.CharacterFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity implements IListItemClickListener {
+public class MainActivity extends BaseActivity{
 
     @Bind(R.id.mainContainer)
     FrameLayout mainContainer;
@@ -38,6 +36,7 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
         setContentView(R.layout.main_layout);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, navDrawer, toolbar, R.string.open_drawer, R.string.close_drawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -61,15 +60,14 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
                 menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.nav_comic:
-                      // getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
-                        Intent intent = new Intent(MainActivity.this, ComicDetailActivity.class);
-                        startActivity(intent);
+                        // getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
                         navDrawer.closeDrawers();
-                    return true;
-                   case  R.id.nav_character:
-                       getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new HomeFragment()).commit();
-                       navDrawer.closeDrawers();
-                    return true;
+                        return true;
+                    case R.id.nav_character:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new CharacterFragment()).commit();
+                        navDrawer.closeDrawers();
+                        return true;
 
 
                 }
@@ -78,25 +76,13 @@ public class MainActivity extends BaseActivity implements IListItemClickListener
                 return false;
             }
         });
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
     }
 
-    @Override
-    public void onItemClicked(String tag) {
-        switch (tag) {
-            case "Comics":
-                getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new ComicFragment()).commit();
-                break;
-            case "Characters":
-
-                break;
-
-        }
-        navDrawer.closeDrawers();
-    }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getSupportFragmentManager().beginTransaction().add(R.id.mainContainer, new ComicFragment()).commit();
     }
 }
