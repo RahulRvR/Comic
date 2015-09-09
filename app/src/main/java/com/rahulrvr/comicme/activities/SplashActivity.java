@@ -1,6 +1,5 @@
 package com.rahulrvr.comicme.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,9 +9,9 @@ import com.rahulrvr.comicme.R;
  * Created by vijayr on 3/18/15.
  * Copyright (C) 2014 Elsevier
  */
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
 
-    private static final int SPLASH_DELAY = 1000;
+    private static final int SPLASH_DELAY = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
