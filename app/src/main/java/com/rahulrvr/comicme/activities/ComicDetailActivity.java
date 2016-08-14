@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -64,7 +65,7 @@ public class ComicDetailActivity extends BaseActivity {
         int id = getIntent().getIntExtra("id", 0);
         if (id > 0) {
             ComicService service = MyApplication.getInstance().getRestAdapter().create(ComicService.class);
-            service.getComic(id).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
+            service.getComic(id).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.newThread()).subscribe(comic -> {
                 Log.d("xx", "dsf");
                 if(comic.getData().getResult()!=null) {
                     txtDescription.setText(comic.getData().getResult().get(0).getDescription());

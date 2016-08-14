@@ -60,12 +60,7 @@ public class ComicListAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
                         }
                     }
                 });
-        ((ViewGroup)holder.characterImage.getParent()).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.OnComicSelected(position);
-            }
-        });
+        ((ViewGroup)holder.characterImage.getParent()).setOnClickListener(v -> mListener.OnComicSelected(position));
     }
 
     @Override
