@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.0'
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha6'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,15 +18,15 @@ allprojects {
 
     ext {
         // Android config
-        androidBuildToolsVersion = '23.0.1'
+        androidBuildToolsVersion = '23.0.3'
         androidMinSdkVersion = 21
         androidTargetSdkVersion = 23
-        androidCompileSdkVersion = 23
+        androidCompileSdkVersion = 24
 
         //library versions
         butterKnifeVersion = '7.0.1'
-        supportVersion = '23.0.1'
-        retrofitVersion = '2.0.0-beta1'
+        supportVersion = '24.1.1'
+        retrofitVersion = '2.1.0'
         picassoVersion = '2.5.2'
         rxjavaVersion = '1.0.13'
         rxAndroidVersion = '1.0.1'
@@ -43,13 +43,13 @@ allprojects {
                 recyclerview         : "com.android.support:recyclerview-v7:${supportVersion}",
                 cardview             : "com.android.support:cardview-v7:${supportVersion}",
                 androidannotations   : "com.android.support:support-annotations:${supportVersion}",
-                retrofit             : "com.squareup.retrofit:retrofit:${retrofitVersion}",
+                retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
                 picasso              : "com.squareup.picasso:picasso:${picassoVersion}",
                 rxjava               : "io.reactivex:rxjava:${rxjavaVersion}",
                 rxandroid            : "io.reactivex:rxandroid:${rxAndroidVersion}",
                 gson                 : "com.google.code.gson:gson:${gsonVersion}",
-                retrofitrxjavaadapter: "com.squareup.retrofit:adapter-rxjava:${retrofitVersion}",
-                retrofitgsonconverter: "com.squareup.retrofit:converter-gson:${retrofitVersion}",
+                retrofitrxjavaadapter: "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+                retrofitgsonconverter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
                 calligraphy          : "uk.co.chrisjenx:calligraphy:${calligraphyVersion}",
         ]
 
