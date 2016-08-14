@@ -2,12 +2,12 @@ package com.rahulrvr.comicme.retrofit;
 
 import com.rahulrvr.comicme.model.characters.CharacterResponse;
 
-import retrofit.http.GET;
+import retrofit2.http.GET;
 import rx.Observable;
 
 /**
  * Created by vijayr on 3/28/15.
- * Copyright (C) 2014 Elsevier
+ * Copyright (C) 2014 rVr
  */
 public interface CharacterService {
 

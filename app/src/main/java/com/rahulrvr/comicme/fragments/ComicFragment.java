@@ -24,9 +24,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class ComicFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
 
@@ -53,11 +54,11 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     public void onResume() {
         super.onResume();
         ComicService service = MyApplication.getInstance().getRestAdapter().create(ComicService.class);
-        service.getComics().observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
+        service.getComics().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
             Log.d("xx", "dsf");
             mComicList = comic.getData().getComics();
             comicList.setAdapter(new ComicListAdapter(getActivity(), mComicList,this));
-        });
+        }, Throwable::printStackTrace);
     }
 
     @Override

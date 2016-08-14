@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class BaseActivity extends AppCompatActivity {
 

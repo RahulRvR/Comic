@@ -6,7 +6,7 @@ import android.support.v7.graphics.Palette;
 import com.squareup.picasso.Transformation;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class PaletteTransformation implements Transformation{
 

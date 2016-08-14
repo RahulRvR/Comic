@@ -3,12 +3,12 @@ package com.rahulrvr.comicme.retrofit;
 import com.rahulrvr.comicme.model.comics.ComicResponse;
 import com.rahulrvr.comicme.model.stories.Comic;
 
-import retrofit.http.GET;
-import retrofit.http.Path;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public interface ComicService {
 

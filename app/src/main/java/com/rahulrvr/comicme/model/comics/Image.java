@@ -3,7 +3,7 @@ package com.rahulrvr.comicme.model.comics;
 import com.google.gson.annotations.Expose;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class Image {
 

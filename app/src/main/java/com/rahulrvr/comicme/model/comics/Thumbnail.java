@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class Thumbnail implements Serializable{
 

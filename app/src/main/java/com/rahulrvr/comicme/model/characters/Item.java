@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 
 /**
  * Created by vijayr on 3/28/15.
- * Copyright (C) 2014 Elsevier
+ * Copyright (C) 2014 rVr
  */
 public class Item {
 

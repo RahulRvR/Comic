@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
- * Copyright (c) 2015 Elsevier, Inc. All rights reserved.
+ * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
 public class CharacterFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
 

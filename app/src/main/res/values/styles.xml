@@ -8,5 +8,8 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
 
 </resources>

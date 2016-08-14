@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by vijayr on 3/28/15.
- * Copyright (C) 2014 Elsevier
+ * Copyright (C) 2014 rVr
  */
 public class Events {
 
