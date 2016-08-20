@@ -23,6 +23,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015 rVr, Inc. All rights reserved.
@@ -47,7 +48,7 @@ public class CharacterFragment extends BaseFragment implements ComicListAdapter.
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         characterList.setLayoutManager(layoutManager);
         CharacterService service = MyApplication.getInstance().getRestAdapter().create(CharacterService.class);
-        service.listCharacters().observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
+        service.listCharacters().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
             Log.d("xx", "dsf");
             mCharacters = comic.getData().getCharacters();
             characterList.setAdapter(new CharacterListAdapter(getActivity(), mCharacters, this));
