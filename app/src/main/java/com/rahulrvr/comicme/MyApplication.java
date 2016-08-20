@@ -5,6 +5,7 @@ import android.app.Application;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import timber.log.Timber;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -26,6 +27,10 @@ public class MyApplication extends Application {
         super.onCreate();
         myApplication = this;
 
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Grinched.ttf")
                 .setFontAttrId(R.attr.fontPath)
@@ -38,6 +43,5 @@ public class MyApplication extends Application {
     public Retrofit getRestAdapter() {
         return mRestAdapter;
     }
-
 
 }
