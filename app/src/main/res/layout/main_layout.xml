@@ -20,7 +20,7 @@
         <include
             android:id="@+id/tool_bar"
             layout="@layout/tool_bar"/>
-        <android.support.design.widget.TabLayout
+        <com.rahulrvr.comicme.CustomTablayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="48dp"/>
