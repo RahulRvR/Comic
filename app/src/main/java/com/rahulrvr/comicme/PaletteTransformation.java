@@ -16,7 +16,7 @@ public class PaletteTransformation implements Transformation{
     @Override
     public Bitmap transform(Bitmap source) {
 
-        mPalette = Palette.generate(source);
+        mPalette = Palette.from(source).generate();
         return source;
     }
 

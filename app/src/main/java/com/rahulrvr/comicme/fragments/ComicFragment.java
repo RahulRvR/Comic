@@ -27,7 +27,7 @@ import rx.schedulers.Schedulers;
 /**
  * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
-public class ComicFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener{
+public class ComicFragment extends BaseFragment implements ComicListAdapter.OnComicItemClickListener {
 
     @Bind(R.id.comicList)
     RecyclerView comicList;
@@ -44,7 +44,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        comicList.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        comicList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
         service.getComics().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
             Log.d("xx", "dsf");
             mComicList = comic.getData().getComics();
-            comicList.setAdapter(new ComicListAdapter(getActivity(), mComicList,this));
+            comicList.setAdapter(new ComicListAdapter(getActivity(), mComicList, this));
         }, Throwable::printStackTrace);
     }
 
@@ -67,10 +67,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     @Override
     public void OnComicSelected(int position) {
         Comic comic = mComicList.get(position);
-        Intent intent = new Intent(getActivity(),ComicDetailActivity.class);
-        intent.putExtra("comic", comic.getThumbnail());
-        intent.putExtra("comicTitle", comic.getTitle());
-        intent.putExtra("id", comic.getId());
+        Intent intent = ComicDetailActivity.newInstance(getActivity(), comic.getThumbnail(), comic.getTitle(), comic.getId(), true);
         getActivity().startActivity(intent);
     }
 }

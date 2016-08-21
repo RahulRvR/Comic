@@ -72,9 +72,7 @@ public class CharacterFragment extends BaseFragment implements ComicListAdapter.
     @Override
     public void OnComicSelected(int position) {
         Character character = mCharacters.get(position);
-        Intent intent = new Intent(getActivity(),ComicDetailActivity.class);
-        intent.putExtra("comic", character.getThumbnail());
-        intent.putExtra("comicTitle", character.getName());
+        Intent intent = ComicDetailActivity.newInstance(getActivity(), character.getThumbnail(), character.getName(), character.getId(), false);
         getActivity().startActivity(intent);
     }
 }

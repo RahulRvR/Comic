@@ -12,7 +12,7 @@ import rx.Observable;
  */
 public interface ComicService {
 
-    @GET("/v1/public/comics?ts=1&apikey=eb95459cac0b6177473decbeb608a839&hash=1ae5d2e78ffa4682eb728f01a6c0c4f5")
+    @GET("/v1/public/comics?ts=1&apikey=eb95459cac0b6177473decbeb608a839&hash=1ae5d2e78ffa4682eb728f01a6c0c4f5&limit=50&offset=50")
     Observable<ComicResponse> getComics();
 
 
@@ -21,5 +21,9 @@ public interface ComicService {
 
     @GET("/v1/public/comics/{comicId}?ts=1&apikey=eb95459cac0b6177473decbeb608a839&hash=1ae5d2e78ffa4682eb728f01a6c0c4f5")
     Observable<Comic> getComic(@Path("comicId") int comicId);
+
+    @GET("/v1/public/characters/{characterId}?ts=1&apikey=eb95459cac0b6177473decbeb608a839&hash=1ae5d2e78ffa4682eb728f01a6c0c4f5")
+    Observable<Comic> getCharacter(@Path("characterId") int comicId);
+
 }
 

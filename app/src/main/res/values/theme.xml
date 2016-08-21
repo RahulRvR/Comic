@@ -5,14 +5,14 @@
         <!-- Customize your theme here. -->
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">@color/md_blue_600</item>
+        <item name="colorPrimary">@color/md_blue_grey_800</item>
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">@color/md_blue_800</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_900</item>
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">@color/md_blue_400</item>
+        <item name="colorAccent">@color/md_blue_grey_800</item>
         <item name="android:textColorPrimary">@color/md_white_1000</item>
         <item name="android:windowBackground">?attr/colorPrimary</item>
-        <item name="android:navigationBarColor">@color/md_blue_500</item>
+        <item name="android:navigationBarColor">@color/immersive_bars</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
