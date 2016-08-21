@@ -11,7 +11,7 @@ import com.rahulrvr.comicme.MyApplication;
 import com.rahulrvr.comicme.R;
 import com.rahulrvr.comicme.databinding.ComicDetailLayoutBinding;
 import com.rahulrvr.comicme.model.comics.Thumbnail;
-import com.rahulrvr.comicme.retrofit.ComicService;
+import com.rahulrvr.comicme.retrofit.MarvelApiService;
 import com.squareup.picasso.Picasso;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -42,7 +42,6 @@ public class ComicDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ComicDetailLayoutBinding binding =  DataBindingUtil.setContentView(this,R.layout.comic_detail_layout);
-        setContentView(R.layout.comic_detail_layout);
         Thumbnail thumbnail = (Thumbnail) getIntent().getSerializableExtra(ARG_URL);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,7 +58,7 @@ public class ComicDetailActivity extends BaseActivity {
 
         int id = getIntent().getIntExtra(ARG_ID, 0);
         if (id > 0) {
-            ComicService service = MyApplication.getInstance().getRestAdapter().create(ComicService.class);
+            MarvelApiService service = MyApplication.getInstance().getRestAdapter().create(MarvelApiService.class);
             boolean isComic = getIntent().getBooleanExtra(ARG_IS_COMIC, false);
             if (isComic) {
                 service.getComic(id).subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {

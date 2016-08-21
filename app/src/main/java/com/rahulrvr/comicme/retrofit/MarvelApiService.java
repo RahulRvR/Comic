@@ -1,5 +1,6 @@
 package com.rahulrvr.comicme.retrofit;
 
+import com.rahulrvr.comicme.model.characters.CharacterResponse;
 import com.rahulrvr.comicme.model.comics.ComicResponse;
 import com.rahulrvr.comicme.model.stories.Comic;
 
@@ -10,7 +11,7 @@ import rx.Observable;
 /**
  * Copyright (c) 2015 rVr, Inc. All rights reserved.
  */
-public interface ComicService {
+public interface MarvelApiService {
 
     @GET("/v1/public/comics?limit=50&offset=50")
     Observable<ComicResponse> getComics();
@@ -24,6 +25,9 @@ public interface ComicService {
 
     @GET("/v1/public/characters/{characterId}")
     Observable<Comic> getCharacter(@Path("characterId") int comicId);
+
+    @GET("/v1/public/characters?limit=50&offset=100")
+    Observable<CharacterResponse> listCharacters();
 
 }
 

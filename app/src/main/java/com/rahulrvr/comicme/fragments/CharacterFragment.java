@@ -5,7 +5,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,13 @@ import com.rahulrvr.comicme.adapters.CharacterListAdapter;
 import com.rahulrvr.comicme.adapters.ComicListAdapter;
 import com.rahulrvr.comicme.databinding.HomeFragmentLayoutBinding;
 import com.rahulrvr.comicme.model.characters.Character;
-import com.rahulrvr.comicme.retrofit.CharacterService;
+import com.rahulrvr.comicme.retrofit.MarvelApiService;
 
 import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 /**
  * Copyright (c) 2015 rVr, Inc. All rights reserved.
@@ -44,9 +44,9 @@ public class CharacterFragment extends BaseFragment implements ComicListAdapter.
         super.onViewCreated(view, savedInstanceState);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         binding.characterList.setLayoutManager(layoutManager);
-        CharacterService service = MyApplication.getInstance().getRestAdapter().create(CharacterService.class);
+        MarvelApiService service = MyApplication.getInstance().getRestAdapter().create(MarvelApiService.class);
         service.listCharacters().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
-            Log.d("xx", "dsf");
+            Timber.d("Fetched Comic");
             mCharacters = comic.getData().getCharacters();
             binding.characterList.setAdapter(new CharacterListAdapter(getActivity(), mCharacters, this));
         });

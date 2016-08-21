@@ -16,7 +16,7 @@ import com.rahulrvr.comicme.activities.ComicDetailActivity;
 import com.rahulrvr.comicme.adapters.ComicListAdapter;
 import com.rahulrvr.comicme.databinding.ComicFragmentLayoutBinding;
 import com.rahulrvr.comicme.model.comics.Comic;
-import com.rahulrvr.comicme.retrofit.ComicService;
+import com.rahulrvr.comicme.retrofit.MarvelApiService;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class ComicFragment extends BaseFragment implements ComicListAdapter.OnCo
     @Override
     public void onResume() {
         super.onResume();
-        ComicService service = MyApplication.getInstance().getRestAdapter().create(ComicService.class);
+        MarvelApiService service = MyApplication.getInstance().getRestAdapter().create(MarvelApiService.class);
         service.getComics().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(comic -> {
             Log.d("xx", "dsf");
             mComicList = comic.getData().getComics();
