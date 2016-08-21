@@ -47,7 +47,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    dataBinding {
+        enabled = true
+    }
 }
 
 
@@ -56,7 +58,6 @@ dependencies {
 
     def presentationDependencies = parent.ext.presentationDependencies
 
-    compile presentationDependencies.butterknife
     compile presentationDependencies.supportv7
     compile presentationDependencies.supportv4
     compile presentationDependencies.designsupport

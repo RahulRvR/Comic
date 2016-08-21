@@ -1,37 +1,25 @@
 package com.rahulrvr.comicme.activities;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 
 import com.rahulrvr.comicme.R;
+import com.rahulrvr.comicme.databinding.MainLayoutBinding;
 import com.rahulrvr.comicme.fragments.CharacterFragment;
 import com.rahulrvr.comicme.fragments.ComicFragment;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class MainActivity extends BaseActivity {
-
-    @Bind(R.id.mainContainer)
-    ViewPager mainContainer;
-    @Bind(R.id.tool_bar)
-    Toolbar toolbar;
-    @Bind(R.id.tabs)
-    TabLayout tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
-        ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
-        mainContainer.setAdapter(new MainActivityFragmentPagerAdapter(getSupportFragmentManager()));
-        tabs.setupWithViewPager(mainContainer);
+        MainLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.main_layout);
+        setSupportActionBar(binding.toolbar);
+        binding.mainContainer.setAdapter(new MainActivityFragmentPagerAdapter(getSupportFragmentManager()));
+        binding.tabs.setupWithViewPager(binding.mainContainer);
     }
 
     public class MainActivityFragmentPagerAdapter extends FragmentPagerAdapter {

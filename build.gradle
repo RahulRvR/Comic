@@ -24,7 +24,6 @@ allprojects {
         androidCompileSdkVersion = 24
 
         //library versions
-        butterKnifeVersion = '7.0.1'
         supportVersion = '24.1.1'
         retrofitVersion = '2.1.0'
         picassoVersion = '2.5.2'
@@ -35,7 +34,6 @@ allprojects {
 
         //presentation libraries
         presentationDependencies = [
-                butterknife          : "com.jakewharton:butterknife:${butterKnifeVersion}",
                 supportv7            : "com.android.support:appcompat-v7:${supportVersion}",
                 supportv4            : "com.android.support:support-v4:${supportVersion}",
                 designsupport        : "com.android.support:design:${supportVersion}",
